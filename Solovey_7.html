@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <script>
+// Функция для вывода свойств объекта с помощью alert
+const displayObjectProperties = (object) => {
+    let message = "";
+    
+    // Перебираем все свойства объекта
+    for (const property in object) {
+        // Если значение свойства является символьным, добавляем кавычки
+        const value = typeof object[property] === "string" ? `"${object[property]}"` : object[property];
+        
+        // Добавляем свойство и его значение в сообщение
+        message += `${property}: ${value}\n`;
+    }
+    
+    // Выводим сообщение с помощью alert
+    alert(message);
+};
+
+// Создаем массив объектов
+const objects = [
+    {
+        name: "Клиент банка",
+        properties: {
+            name: "Иван",
+            surname: "Иванов",
+            age: 30,
+            accountNumber: "1234567890",
+            balance: 100000
+        }
+    },
+    {
+        name: "Работник клиники",
+        properties: {
+            name: "Мария",
+            surname: "Петрова",
+            age: 25,
+            position: "медсестра",
+            salary: 50000
+        }
+    },
+    {
+        name: "Гражданин РФ",
+        properties: {
+            name: "Петр",
+            surname: "Сидоров",
+            age: 40,
+            passportNumber: "1234567890",
+            registrationAddress: "г. Москва, ул. Ленина, д. 1, кв. 1"
+        }
+    }
+];
+
+// Перебираем массив объектов и выводим их свойства на экран
+for (const object of objects) {
+    displayObjectProperties(object.properties);
+}
+    </script>
+
+</body>
+</html>
