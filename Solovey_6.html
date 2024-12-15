@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <!-- Задание 1 -->
+    <script>
+        const arr1 = [1, 2, 3];
+const arr2 = arr1.map(item => (item + 10) * 3); // Увеличиваем каждый элемент на 10 и в три раза
+alert(arr2);
+     </script>
+
+
+
+    <!-- Задание 2 -->
+    <script>
+      // Массив с годами рождения
+const birthYears = [1980, 1990, 2000, 2015, 2023];
+
+birthYears.forEach((year) => {
+  // Вычисляем возраст, вычитая год рождения из текущего года
+  const age = new Date().getFullYear() - year;
+
+  // Выводим возраст с помощью alert
+  alert(`Возраст: ${age}`);
+}); </script>
+
+
+
+
+
+    <!-- Задание 3 -->
+     <script>
+    const users = [
+    { name: 'Peter', age: 20, isAdmin: true },
+    { name: 'Mark', age: 18, isAdmin: false },
+    { name: 'John', age: 27, isAdmin: true },
+    { name: 'Jane', age: 14, isAdmin: false },
+    { name: 'Tony', age: 24, isAdmin: true},
+  ];
+  
+  const admins = users.filter(user => user.isAdmin === true);
+  
+  alert(admins);
+</script>
+
+
+
+
+<!-- Задание 4 --> 
+ <script>
+const students = [
+  { name: 'Alice', grades: [80, 85, 90] },
+  { name: 'Bob', grades: [75, 80, 70] },
+  { name: 'Cindy', grades: [90, 95, 90] },
+];
+
+const sumOfGrades = students.reduce((acc, curr) => acc + curr.grades.reduce((a, b) => a + b, 0), 0);
+const averageGrade = sumOfGrades / students.length;
+
+alert(`Средний балл студентов: ${averageGrade}`);
+
+function mapForEach(arr, fn) {
+  const newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push(fn(arr[i]));
+  }
+  return newArray;
+}
+
+const strArray = ['JavaScript', 'Python', 'PHP', 'Java', 'C'];
+
+const lenArray = mapForEach(strArray, (item) => (item.length <= 3 ? 0 : 1));
+
+alert(lenArray); // выводит [1, 1, 0, 1, 0] </script>
+
+
+
+<!-- 1. Функция `Array.prototype.map` является функцией первого порядка, 
+ поскольку она принимает другой функцию (обратный вызов) в качестве аргумента, но не возвращает функцию.
+
+2. Анализ кода:
+Функция `mapForEach` является реализацией функции `Array.prototype.map` без использования синтаксиса стрелочных функций. 
+Она принимает массив и функцию обратного вызова и возвращает новый массив с результатами применения функции обратного вызова к каждому элементу массива.
+Функция `lenArray` является функцией высшего порядка, поскольку она принимает функцию обратного вызова в качестве аргумента и возвращает функцию.
+В данном случае функция обратного вызова для функции `lenArray` возвращает длину каждого элемента массива `strArray`. --> 
+
+
+<!-- Доп.Задание 
+// Функция для создания симулятора
+const createSimulator = () => {
+    // Возвращает случайное число от 0 до 2 (красный, черный или белый)
+    return () => Math.floor(Math.random()  3);
+};
+
+// Запускает симуляцию указанное количество раз
+const runSimulation = (simulator, count) => {
+    const results = [];
+    
+    // Запускаем симулятор и записываем результаты в массив
+    for (let i = 0; i < count; i++) {
+        results.push(simulator());
+    }
+    
+    return results;
+};
+
+// Находим самую короткую последовательность
+const findShortestSequence = (results) => {
+    let shortestSequence = results;
+    
+    for (let i = 0; i < results.length; i++) {
+        const currentSequence = results.slice(i);
+        if (currentSequence.length < shortestSequence.length) {
+            shortestSequence = currentSequence;
+        }
+    }
+    
+    return shortestSequence;
+};
+
+// Создаем симулятор
+const simulator = createSimulator();
+
+// Запускаем симуляцию 1 000 000 раз
+const results = runSimulation(simulator, 1000000);
+
+// Находим самую короткую последовательность
+const shortestSequence = findShortestSequence(results);
+
+// Выводим самую короткую последовательность с помощью alert
+alert(`Самая короткая последовательность: ${shortestSequence.join(', ')}`);-->
+
+</body>
+</html>
