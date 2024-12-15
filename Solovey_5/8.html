@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Фильтр по email</h1>
+    <input type="text" id="filter-input" placeholder="Введите название почты">
+    <ul id="email-list">
+    </ul>
+    <script>
+      // Получить массив email
+      const emails = [
+        'Amerika@gmail.com',
+        'Russia@gmail.com',
+        'Avstralia@gmail.com',
+        'Columbia@gmail.com',
+        'Germani@gmail.com',
+        'MamaLubimaya@gmail.com',
+      ];
+  
+      // Получить элемент списка email
+      const emailList = document.getElementById('email-list');
+  
+      // Создать элементы списка для каждого email
+      for (let i = 0; i < emails.length; i++) {
+        const email = emails[i];
+        const listItem = document.createElement('li');
+        listItem.textContent = email;
+        emailList.appendChild(listItem);
+      }
+  
+      // Получить поле ввода
+      const filterInput = document.getElementById('filter-input');
+  
+      // Добавить обработчик события ввода
+      filterInput.addEventListener('input', e => {
+        // Получить введенное значение
+        const filterValue = e.target.value.toLowerCase();
+  
+        // Отфильтровать элементы списка
+        const filteredEmails = emails.filter(email => {
+          return email.toLowerCase().includes(filterValue);
+        });
+  
+        // Очистить список email
+        emailList.innerHTML = '';
+  
+        // Создать элементы списка для отфильтрованных email
+        for (let i = 0; i < filteredEmails.length; i++) {
+          const email = filteredEmails[i];
+          const listItem = document.createElement('li');
+          listItem.textContent = email;
+          emailList.appendChild(listItem);
+        }
+      });
+    </script>
+
+    <!-- 
+1. Нет, у стрелочной функции нет метода `this`.
+
+2. Да, стрелочная функция может быть без аргументов.
+
+3. Стрелочные функции были введены в ES6 для упрощения написания функций, особенно в качестве обратных вызовов или методов в объектах. 
+Они имеют более компактный синтаксис и позволяют легко определять функции, сохраняя при этом контекст лексической области (например, `this`).
+
+4. Объяснение работы алгоритма:
+В приведенном примере есть две стрелочные функции без параметров:
+
+ Первая функция:
+     Выводит "Я буду раньше" в консоль.
+     Выполняется с задержкой 1 мс.
+ Вторая функция:
+     Выводит "Я буду позже" в консоль.
+     Выполняется с задержкой 1 мс.
+
+Код выполняется следующим образом:
+
+1. Обе функции вызываются с задержкой 1 мс с помощью `setTimeout`.
+2. Поскольку первая функция имеет меньшую задержку, она выполнится первой.
+3. Поэтому на консоль будет сначала выведено "Я буду раньше".
+4. Затем выполнится вторая функция, выводя на консоль "Я буду позже". -->
+
+</body>
+</html>

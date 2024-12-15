@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+ 
+    <script>
+const daysToNewYear = () => {
+  const today = new Date();
+  const newYear = new Date(today.getFullYear() + 1, 0, 1);
+  return Math.ceil((newYear - today) / (1000 * 60 * 60 * 24));
+}
+
+alert(`До нового года осталось ${daysToNewYear()} дней`);
+    </script>
+
+</body>
+</html>
