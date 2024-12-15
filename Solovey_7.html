@@ -6,6 +6,7 @@
 </head>
 <body>
 
+    <!-- Задание 1 -->
     <script>
 // Функция для вывода свойств объекта с помощью alert
 const displayObjectProperties = (object) => {
@@ -63,6 +64,103 @@ for (const object of objects) {
     displayObjectProperties(object.properties);
 }
     </script>
+
+
+
+
+<!-- Задание 2 -->
+ <script>
+    const number = +prompt('Загадайте цифру до 9', '');
+switch (number) {
+  case 1:
+    alert('Вы ввели число 1');
+    break;
+  case 2:
+    alert('Вы ввели число 2');
+    break;
+  case 8:
+  case 9:
+    alert('Вы ввели число 8, а может и 9');
+    break;
+  default:
+    alert('Вы ввели неверную цифру');
+}
+ </script>
+
+
+
+
+
+<!-- Задание 3 -->
+<script>
+    switch (min / 15) {
+  case 0:
+    System.out.println("Первая четверть часа");
+    break;
+  case 1:
+    System.out.println("Вторая четверть часа");
+    break;
+  case 2:
+    System.out.println("Третья четверть часа");
+    break;
+  case 3:
+    System.out.println("Четвертая четверть часа");
+    break;
+  default:
+    System.out.println("Неправильное значение");
+}
+ </script>
+
+
+
+
+
+<!-- Задание 4 -->
+<script>
+const str = "12345";
+
+switch (str[0]) {
+  case "1":
+  case "2":
+  case "3":
+    alert("Первая цифра 1, 2 или 3");
+    break;
+  default:
+    alert("нет");
+}
+
+const myPhoneNumber = "123-456-7890";
+
+if (str.includes(myPhoneNumber)) {
+  alert("Ваш номер телефона включен в строку");
+} else {
+  alert("Ваш номер телефона не включен в строку");
+}
+ </script>
+
+
+
+
+
+<!-- 1.Отличие строкового типа от символьного
+
+ Строковый тип (string): представляет собой последовательность нуля или более символов Unicode.
+ Символьный тип (char): представляет собой один символ Unicode.
+
+2. Как вывести символьное значение в цикле в JS
+
+Чтобы вывести символьное значение в цикле на JavaScript, можно использовать следующий код:
+// символ, который нужно вывести
+const char = 'a';
+
+// количество раз, которое нужно вывести символ
+const times = 5;
+
+// цикл вывода символа
+for (let i = 0; i < times; i++) {
+  // вывод символа с помощью метода String.fromCharCode()
+  alert(String.fromCharCode(char.charCodeAt(0)));
+} -->
 
 </body>
 </html>
