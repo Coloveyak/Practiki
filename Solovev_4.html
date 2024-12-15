@@ -107,37 +107,81 @@
     user.swapName();
 </script>
 
-<!--1. Объект в программировании - это экземпляр класса, который представляет собой группу связанных данных (атрибутов) и поведения (методов).
-    2. Общие типы методов для объектов включают:
 
- - Геттеры и сеттеры: Запрашивают или устанавливают значения атрибутов объекта.
- - Модификаторы: Изменяют состояние или поведение объекта.
- - Логические методы: Проверяют условия или выполняют логические операции.
- - Операторы: Выполняют арифметические или другие операции над данными объекта. -->
+<!-- 1. Классы в JavaScript используются для создания объектов, которые объединяют данные (свойства) и методы (функции). 
+Они обеспечивают структурированный и переиспользуемый способ создания экземпляров объектов с общими характеристиками. Классы упрощают организацию кода и управление им, делая его более понятным и поддерживаемым.
 
- <!-- Доп. Задание 
- // Создать объект Калькулятор
- const Calculator = {
- 
-   // Операции в качестве значений
-   add(a, b) {
-     return a + b;
-   },
-   subtract(a, b) {
-     return a - b;
-   },
-   multiply(a, b) {
-     return a  b;
-   },
-   divide(a, b) {
-     return a / b;
-   },
- };
- 
- // Пример использования
- console.log(Calculator.add(10, 5)); // 15
- console.log(Calculator.subtract(10, 5)); // 5
- console.log(Calculator.multiply(10, 5)); // 50
- console.log(Calculator.divide(10, 5)); // 2 -->
+2. В этом примере `MyConstructor` является функцией-конструктором, которая создает экземпляр класса `MyClass`. Это доказывает, что классы в JavaScript являются функциями-конструкторами под другим синтаксисом.
+class MyClass {
+  constructor() {}
+}
+
+// Получение функции-конструктора
+const MyConstructor = MyClass.constructor;
+
+// Создание экземпляра класса с помощью конструктора
+const instance = new MyConstructor();
+
+// Проверка типа экземпляра
+console.log(instance instanceof MyClass); // true -->
+
+<!-- Доп. Задание
+ <script>
+        class Simulator {
+            constructor() {
+                this.colors = ["красный", "черный", "белый"];
+            }
+
+            roll() {
+                return this.colors[Math.floor(Math.random() * this.colors.length)];
+            }
+        }
+
+        function simulate() {
+            const colors = ["красный", "черный", "белый"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Использование класса
+        const simulator = new Simulator();
+        let longestSequence = 0;
+        let currentSequence = 0;
+        let previousColor = null;
+
+        for (let i = 0; i < 1000000; i++) {
+            const color = simulator.roll();
+            if (color === previousColor) {
+                currentSequence++;
+            } else {
+                currentSequence = 1;
+            }
+            previousColor = color;
+            if (currentSequence > longestSequence) {
+                longestSequence = currentSequence;
+            }
+        }
+
+        alert(`Самая длинная последовательность (класс): ${longestSequence}`);
+
+        // Использование функции
+        longestSequence = 0;
+        currentSequence = 0;
+        previousColor = null;
+
+        for (let i = 0; i < 1000000; i++) {
+            const color = simulate();
+            if (color === previousColor) {
+                currentSequence++;
+            } else {
+                currentSequence = 1;
+            }
+            previousColor = color;
+            if (currentSequence > longestSequence) {
+                longestSequence = currentSequence;
+            }
+        }
+
+        alert(`Самая длинная последовательность (функция): ${longestSequence}`);
+    </script> -->
 </body>
 </html>
