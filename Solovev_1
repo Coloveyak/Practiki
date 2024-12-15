@@ -6,11 +6,13 @@
 </head>
 <body>
 
+<!-- Задание 1 -->
   <script>
     let oops = "hello";
 alert(typeof(oops)); 
 </script>
 
+<!-- Задание 2 -->
   <script>
 let number1 = prompt("Введите первое число:");
 let number2 = prompt("Введите второе число:");
@@ -59,8 +61,8 @@ let age = new Date().getFullYear() - birthYear;
 
 // Вывести имя пользователя и его возраст на страницу в абзаце.
 document.write(`<p>${userName}: ${age}</p>`);
-
 </script>
+
 </body>
 </html>
 
